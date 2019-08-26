@@ -5,60 +5,60 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>函数的防抖和节流 | 鹏 の 博客</title>
     <meta name="description" content="越努力，越幸运">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/myblog/favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     
-    <link rel="preload" href="/assets/css/0.styles.ee009e30.css" as="style"><link rel="preload" href="/assets/js/app.2fc25dcf.js" as="script"><link rel="preload" href="/assets/js/3.7a4254a5.js" as="script"><link rel="preload" href="/assets/js/1.c75d1840.js" as="script"><link rel="preload" href="/assets/js/7.48cdb11d.js" as="script"><link rel="prefetch" href="/assets/js/10.14ebbed5.js"><link rel="prefetch" href="/assets/js/11.0e202a95.js"><link rel="prefetch" href="/assets/js/4.e0f8a6eb.js"><link rel="prefetch" href="/assets/js/5.c90f5f82.js"><link rel="prefetch" href="/assets/js/6.d45a766e.js"><link rel="prefetch" href="/assets/js/8.ebf8f32a.js"><link rel="prefetch" href="/assets/js/9.6d1dc5a4.js">
-    <link rel="stylesheet" href="/assets/css/0.styles.ee009e30.css">
+    <link rel="preload" href="/myblog/assets/css/0.styles.b3bd48e4.css" as="style"><link rel="preload" href="/myblog/assets/js/app.d1382ac2.js" as="script"><link rel="preload" href="/myblog/assets/js/3.ef1152f6.js" as="script"><link rel="preload" href="/myblog/assets/js/1.133ac2e9.js" as="script"><link rel="preload" href="/myblog/assets/js/7.a36e0158.js" as="script"><link rel="prefetch" href="/myblog/assets/js/10.73a08c76.js"><link rel="prefetch" href="/myblog/assets/js/11.0e202a95.js"><link rel="prefetch" href="/myblog/assets/js/4.db7fe15a.js"><link rel="prefetch" href="/myblog/assets/js/5.e3f6f6d7.js"><link rel="prefetch" href="/myblog/assets/js/6.791fac17.js"><link rel="prefetch" href="/myblog/assets/js/8.aa41767e.js"><link rel="prefetch" href="/myblog/assets/js/9.fe52f102.js">
+    <link rel="stylesheet" href="/myblog/assets/css/0.styles.b3bd48e4.css">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div><div class="theme-container"><div><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">鹏 の 博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="theme-options"><!----> <div class="dark-theme-options toggle-option"><label for="dark-theme-toggle">Enable Dark Theme?</label> <input id="dark-theme-toggle" type="checkbox" checked="checked"></div></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont undefined"></i>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container"><div><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/myblog/" class="home-link router-link-active"><!----> <span class="site-name">鹏 の 博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="theme-options"><!----> <div class="dark-theme-options toggle-option"><label for="dark-theme-toggle">Enable Dark Theme?</label> <input id="dark-theme-toggle" type="checkbox" checked="checked"></div></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link"><i class="iconfont undefined"></i>
   主页
 </a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
       技术分享
-    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/technology/vue/" class="nav-link"><i class="iconfont undefined"></i>
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/technology/vue/" class="nav-link"><i class="iconfont undefined"></i>
   vue
-</a></li><li class="dropdown-item"><!----> <a href="/technology/react/" class="nav-link"><i class="iconfont undefined"></i>
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/technology/react/" class="nav-link"><i class="iconfont undefined"></i>
   react
-</a></li><li class="dropdown-item"><!----> <a href="/technology/performance/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/technology/performance/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
   性能优化
 </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
       工作分享
-    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/work/bug/" class="nav-link"><i class="iconfont undefined"></i>
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/work/bug/" class="nav-link"><i class="iconfont undefined"></i>
   踩坑
 </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
       生活分享
-    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/life/food/" class="nav-link"><i class="iconfont undefined"></i>
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/life/food/" class="nav-link"><i class="iconfont undefined"></i>
   美食
-</a></li><li class="dropdown-item"><!----> <a href="/life/scenery/" class="nav-link"><i class="iconfont undefined"></i>
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/life/scenery/" class="nav-link"><i class="iconfont undefined"></i>
   风景
-</a></li><li class="dropdown-item"><!----> <a href="/life/fun/" class="nav-link"><i class="iconfont undefined"></i>
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/life/fun/" class="nav-link"><i class="iconfont undefined"></i>
   趣事
-</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont undefined"></i>
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link"><i class="iconfont undefined"></i>
   主页
 </a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
       技术分享
-    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/technology/vue/" class="nav-link"><i class="iconfont undefined"></i>
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/technology/vue/" class="nav-link"><i class="iconfont undefined"></i>
   vue
-</a></li><li class="dropdown-item"><!----> <a href="/technology/react/" class="nav-link"><i class="iconfont undefined"></i>
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/technology/react/" class="nav-link"><i class="iconfont undefined"></i>
   react
-</a></li><li class="dropdown-item"><!----> <a href="/technology/performance/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/technology/performance/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
   性能优化
 </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
       工作分享
-    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/work/bug/" class="nav-link"><i class="iconfont undefined"></i>
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/work/bug/" class="nav-link"><i class="iconfont undefined"></i>
   踩坑
 </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
       生活分享
-    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/life/food/" class="nav-link"><i class="iconfont undefined"></i>
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/myblog/life/food/" class="nav-link"><i class="iconfont undefined"></i>
   美食
-</a></li><li class="dropdown-item"><!----> <a href="/life/scenery/" class="nav-link"><i class="iconfont undefined"></i>
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/life/scenery/" class="nav-link"><i class="iconfont undefined"></i>
   风景
-</a></li><li class="dropdown-item"><!----> <a href="/life/fun/" class="nav-link"><i class="iconfont undefined"></i>
+</a></li><li class="dropdown-item"><!----> <a href="/myblog/life/fun/" class="nav-link"><i class="iconfont undefined"></i>
   趣事
-</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/technology/performance/" class="sidebar-link">介绍</a></li><li><a href="/technology/performance/防抖和节流.html" class="active sidebar-link">防抖和节流</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/technology/performance/防抖和节流.html#函数的防抖和节流" class="sidebar-link">函数的防抖和节流</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/technology/performance/防抖和节流.html#防抖" class="sidebar-link">防抖</a></li><li class="sidebar-sub-header"><a href="/technology/performance/防抖和节流.html#节流" class="sidebar-link">节流</a></li></ul></li></ul></li></ul> </aside> <div><main class="page reco-hide"> <div class="page-title"><h1>函数的防抖和节流</h1> <hr> <div data-v-362e684e><i class="iconfont reco-account" data-v-362e684e><span data-v-362e684e>鹏 の 博客</span></i> <!----> <!----> <!----></div></div> <div class="content__default"><h2 id="函数的防抖和节流"><a href="#函数的防抖和节流" aria-hidden="true" class="header-anchor">#</a> 函数的防抖和节流</h2> <blockquote><p>当我们频繁的触发某些事件，或者我们需要频繁地发送请求去请求数据，我们希望的是对一些频繁触发的事件进行控制，那么就可以选择使用函数的防抖和节流进行控制。</p></blockquote> <h3 id="防抖"><a href="#防抖" aria-hidden="true" class="header-anchor">#</a> 防抖</h3> <ul><li><p>防抖的原理</p> <blockquote><p>触发事件后在n秒内函数只能执行一次，如果在n秒内再次触发事件，那么会重新计算函数的执行事件</p></blockquote></li> <li><p>举例一个简单的场景</p> <blockquote><p>用户点击一个按钮执行一些相应的操作，不可避免用户可能存在多次快速点击，我只希望在一定时间内执行一次，那么我们使用防抖函数来实现控制用户的点击次数操作</p></blockquote></li> <li><p>先看看效果对比图</p> <ul><li><p>防抖前
-<img src="/assets/img/防抖之前.d68a0e30.gif"></p></li> <li><p>防抖后
-<img src="/assets/img/防抖效果.28936d3a.gif"></p></li></ul></li> <li><p>直接上代码</p> <blockquote><p>html部分</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>&lt;input type=&quot;button&quot; value=&quot;抢购&quot; id=&quot;ipt&quot;&gt;
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/myblog/technology/performance/" class="sidebar-link">介绍</a></li><li><a href="/myblog/technology/performance/防抖和节流.html" class="active sidebar-link">防抖和节流</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/myblog/technology/performance/防抖和节流.html#函数的防抖和节流" class="sidebar-link">函数的防抖和节流</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/myblog/technology/performance/防抖和节流.html#防抖" class="sidebar-link">防抖</a></li><li class="sidebar-sub-header"><a href="/myblog/technology/performance/防抖和节流.html#节流" class="sidebar-link">节流</a></li></ul></li></ul></li></ul> </aside> <div><main class="page reco-hide"> <div class="page-title"><h1>函数的防抖和节流</h1> <hr> <div data-v-362e684e><i class="iconfont reco-account" data-v-362e684e><span data-v-362e684e>鹏 の 博客</span></i> <!----> <!----> <!----></div></div> <div class="content__default"><h2 id="函数的防抖和节流"><a href="#函数的防抖和节流" aria-hidden="true" class="header-anchor">#</a> 函数的防抖和节流</h2> <blockquote><p>当我们频繁的触发某些事件，或者我们需要频繁地发送请求去请求数据，我们希望的是对一些频繁触发的事件进行控制，那么就可以选择使用函数的防抖和节流进行控制。</p></blockquote> <h3 id="防抖"><a href="#防抖" aria-hidden="true" class="header-anchor">#</a> 防抖</h3> <ul><li><p>防抖的原理</p> <blockquote><p>触发事件后在n秒内函数只能执行一次，如果在n秒内再次触发事件，那么会重新计算函数的执行事件</p></blockquote></li> <li><p>举例一个简单的场景</p> <blockquote><p>用户点击一个按钮执行一些相应的操作，不可避免用户可能存在多次快速点击，我只希望在一定时间内执行一次，那么我们使用防抖函数来实现控制用户的点击次数操作</p></blockquote></li> <li><p>先看看效果对比图</p> <ul><li><p>防抖前
+<img src="/myblog/assets/img/防抖之前.d68a0e30.gif"></p></li> <li><p>防抖后
+<img src="/myblog/assets/img/防抖效果.28936d3a.gif"></p></li></ul></li> <li><p>直接上代码</p> <blockquote><p>html部分</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>&lt;input type=&quot;button&quot; value=&quot;抢购&quot; id=&quot;ipt&quot;&gt;
 </code></pre></div><blockquote><p>封装防抖函数</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function debounce(fn,delay=200) { 
         // 定时器标识 
         let timer = null;  
@@ -87,11 +87,11 @@ ipt.onclick = function () { 
             },delay) 
         }
     }
-</code></pre></div><blockquote><p>查看效果</p></blockquote> <img src="/assets/img/节流效果.2eb7bccb.gif"></li> <li><p>适用的场景</p> <ul><li>比如搜索框搜索内容的时候，减少向后台请求次数，达到性能的优化</li></ul></li></ul></div> <!----> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div><blockquote><p>查看效果</p></blockquote> <img src="/myblog/assets/img/节流效果.2eb7bccb.gif"></li> <li><p>适用的场景</p> <ul><li>比如搜索框搜索内容的时候，减少向后台请求次数，达到性能的优化</li></ul></li></ul></div> <!----> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
         ←
-        <a href="/technology/performance/" class="prev router-link-active">
+        <a href="/myblog/technology/performance/" class="prev router-link-active">
           介绍
         </a></span> <!----></p></div> </main> <div class="valine-wrapper" data-v-5029e45b><div id="valine" data-v-5029e45b></div></div></div> <div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;background-color:rgba(231, 234, 241,.5);display:none;" data-v-cd623d78 data-v-cd623d78><i class="iconfont reco-up" data-v-cd623d78></i></div></div></div></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.2fc25dcf.js" defer></script><script src="/assets/js/3.7a4254a5.js" defer></script><script src="/assets/js/1.c75d1840.js" defer></script><script src="/assets/js/7.48cdb11d.js" defer></script>
+    <script src="/myblog/assets/js/app.d1382ac2.js" defer></script><script src="/myblog/assets/js/3.ef1152f6.js" defer></script><script src="/myblog/assets/js/1.133ac2e9.js" defer></script><script src="/myblog/assets/js/7.a36e0158.js" defer></script>
   </body>
 </html>

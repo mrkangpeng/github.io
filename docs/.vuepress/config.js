@@ -1,4 +1,5 @@
 module.exports = {
+  base:'/myblog/',
   title: '鹏 の 博客',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
